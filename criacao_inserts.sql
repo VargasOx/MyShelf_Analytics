@@ -8,6 +8,7 @@ INSERT autores
         nome_autor,
         pais_autor,
         estado_autor,
+        cidade_autor,
         sexo_autor,
         data_nascimento,
         data_morte,
@@ -18,21 +19,27 @@ INSERT autores
 VALUES
 
     (
-        /* nome_autor */        'Jose Saramago',
-        /* pais_autor */        'Portugal',
-        /* estado_autor */      null,
+        /* nome_autor */        'Haruki Murakami',
+        /* pais_autor */        'Japao',
+        /* estado_autor */      null,--'Minas Gerais',
+        /* cidade_autor */      'Kyoto',
         /* sexo_autor */        'Masculino',
-        /* data_nascimento */   cast('16/11/1922' as date),
-        /* data_morte */        cast('18/06/2010' as date),
-        /* principal_obra */    'Ensaio sobre a cegueira',
+        /* data_nascimento */   cast('12/01/1949' as date),
+        /* data_morte */        null, --cast('28/12/2018' as date),
+        /* principal_obra */    'Kafka a beira-mar',
         /* data_cadastro */     GETDATE()
     )
 
 
-
 /* Consulta o ID do autor caso ele já esteja cadastrado */
 
-SELECT id_autor, nome_autor FROM autores WHERE nome_autor like 'Jose%'
+-- SELECT id_autor, nome_autor FROM autores WHERE nome_autor like 'Jose%' 
+
+
+
+/* reseta o identity da coluna de id */
+
+-- DBCC CHECKIDENT (autores, RESEED, 8)
 
 
 
@@ -44,9 +51,14 @@ INSERT livros
         id_autor,
         editora,
         categoria,
+        edicao,
+        reimpressao,
         tipo_edicao,
+        serie,
+        colecao,
         paginas,
         idioma,
+        tradutor,
         isbn,
         status_leitura,
         data_conslusao,
@@ -59,22 +71,34 @@ INSERT livros
 values 
 
 (
-   /* titulo */             'Historia do cerco de Lisboa',
-    /* id_autor */          1,
-    /* editoria */          'Companhia das letras',
+   /* titulo */             'Norwegian Wood',
+    /* id_autor */          10,
+    /* editoria */          'Alfaguara',
     /* categoria */         'Romance',
+    /* edicao */            1,                                                                      
+    /* reimpressao */       null,
     /* tipo_edicao */       'Brochura',
-    /* paginas */           352,
+    /* serie */             NULL,
+    /* colecao */           NULL,
+    /* paginas */           360,
     /* idioma */            'Portugues',
-    /* isbn */              '978-85-7164-035-1',
-    /* status_leitura */    'Em andamento',
-    /* data_conslusao */    null,
-    /* ano_lancamento */    1989,
-    /* ano_publicacao */    2011,
-    /* valor_compras */     55.00,
+    /* tradutor */          'Jefferson Jose Teixeira',
+    /* isbn */              '978-8560281527',
+    /* status_leitura */    'Lido',
+    /* data_conslusao */    null,--CAST('20/06/2024' AS date),
+    /* ano_lancamento */    1987,
+    /* ano_publicacao */    2008,
+    /* valor_compras */     34.74,
     /* data_cadastro */     GETDATE()
 
 )
 
 
-SELECT * FROM livros
+/* reseta o identity da coluna de id */
+
+-- DBCC CHECKIDENT (livros, RESEED, 1)
+
+
+
+
+

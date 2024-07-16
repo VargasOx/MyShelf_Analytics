@@ -34,9 +34,14 @@ create table livros
     id_autor        int not null,
     editora         varchar(250) not null,
     categoria       varchar(250) not null,
+    edicao          int,
+    reimpressao     int,
     tipo_edicao     varchar(250) not null,
+    serie           varchar(250),
+    colecao         varchar(250),
     paginas         int not null,
     idioma          varchar(20) not null,
+    tradutor        varchar(250),
     isbn            varchar(50) not null,
     status_leitura  varchar(15) not null,
     data_conslusao  date,
@@ -49,6 +54,7 @@ create table livros
 /* cria a chave estrangeira id_autor na tabela livros */
 
 alter table livros ADD CONSTRAINT fk_autor FOREIGN KEY (id_autor) REFERENCES autores (id_autor)
+
 
 
 
