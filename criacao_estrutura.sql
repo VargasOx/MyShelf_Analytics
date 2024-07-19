@@ -57,5 +57,17 @@ alter table livros ADD CONSTRAINT fk_autor FOREIGN KEY (id_autor) REFERENCES aut
 
 
 
+/* cria a tabela que irá receber as imagens das capas dos livros */
+
+create table capas
+
+(
+    id_capa        int not null PRIMARY KEY,
+    isbn           varchar(50) not null,
+    url_imagem     varchar(max) not null    
+)
+
+
+
 
 

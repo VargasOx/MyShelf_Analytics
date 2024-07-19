@@ -19,14 +19,14 @@ INSERT autores
 VALUES
 
     (
-        /* nome_autor */        'Haruki Murakami',
-        /* pais_autor */        'Japao',
+        /* nome_autor */        'Uma breve história da humanidade',
+        /* pais_autor */        'Israel',
         /* estado_autor */      null,--'Minas Gerais',
-        /* cidade_autor */      'Kyoto',
+        /* cidade_autor */      'Qiryat Atta',
         /* sexo_autor */        'Masculino',
-        /* data_nascimento */   cast('12/01/1949' as date),
-        /* data_morte */        null, --cast('28/12/2018' as date),
-        /* principal_obra */    'Kafka a beira-mar',
+        /* data_nascimento */   cast('24/02/1976' as date),
+        /* data_morte */        null,--cast('14/06/1986' as date),
+        /* principal_obra */    'Uma breve história da humanidade',
         /* data_cadastro */     GETDATE()
     )
 
@@ -71,24 +71,24 @@ INSERT livros
 values 
 
 (
-   /* titulo */             'Norwegian Wood',
-    /* id_autor */          10,
-    /* editoria */          'Alfaguara',
-    /* categoria */         'Romance',
-    /* edicao */            1,                                                                      
+   /* titulo */             'Uma breve história da humanidade',
+    /* id_autor */          12,
+    /* editoria */          'L&PM',
+    /* categoria */         'História',
+    /* edicao */            51,                                                                      
     /* reimpressao */       null,
     /* tipo_edicao */       'Brochura',
     /* serie */             NULL,
     /* colecao */           NULL,
-    /* paginas */           360,
+    /* paginas */           446,
     /* idioma */            'Portugues',
-    /* tradutor */          'Jefferson Jose Teixeira',
-    /* isbn */              '978-8560281527',
-    /* status_leitura */    'Lido',
+    /* tradutor */          'Janaina Marcoantonio',
+    /* isbn */              '978-85-254-3218-6',
+    /* status_leitura */    'Em andamento',
     /* data_conslusao */    null,--CAST('20/06/2024' AS date),
-    /* ano_lancamento */    1987,
-    /* ano_publicacao */    2008,
-    /* valor_compras */     34.74,
+    /* ano_lancamento */    2011,
+    /* ano_publicacao */    2020,
+    /* valor_compras */     34.90,
     /* data_cadastro */     GETDATE()
 
 )
@@ -97,6 +97,7 @@ values
 /* reseta o identity da coluna de id */
 
 -- DBCC CHECKIDENT (livros, RESEED, 1)
+
 
 
 
