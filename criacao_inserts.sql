@@ -35,11 +35,9 @@ VALUES
 
 -- SELECT id_autor, nome_autor FROM autores WHERE nome_autor like 'Jose%' 
 
-
-
 /* reseta o identity da coluna de id */
 
--- DBCC CHECKIDENT (autores, RESEED, 8)
+-- DBCC CHECKIDENT (autores, RESEED, 13)
 
 
 
