@@ -26,9 +26,23 @@ def insert_autor(nome_autor,pais_autor,estado_autor,cidade_autor,sexo_autor,data
 
     infos = (nome_autor,pais_autor, estado_autor,cidade_autor,sexo_autor,data_nascimento,data_morte,principal_obra, data_cadastro)
 
-    conexao.execute(insert_autor,infos)
-    conexao.commit()
-    conexao.close()
+
+    ## faz a consulta dos autores já cadastrados para que na clausula if not deixemos cadastrar apenas autores que não existem atualmente.
+    ## se o autor já existe retorna uma mensagem de erro e encerra a conexão, se não existe ele faz o novo insert
+    query = 'SELECT nome_autor FROM autores'
+    conexao.execute(query).fetchall()
+    autores_cadastrados = pd.read_sql(query,con=conexao)
+
+    if not autores_cadastrados.loc[autores_cadastrados['nome_autor'] == nome_autor].empty:
+        print('Autor já cadastrado!')
+        conexao.close()
+    else:
+
+        conexao.execute(insert_autor,infos)
+        conexao.commit()
+        conexao.close()
+
+
 
 
 
